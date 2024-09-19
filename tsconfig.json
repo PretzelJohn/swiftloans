@@ -3,7 +3,6 @@
   "include": [
     "next-env.d.ts",
     "src",
-    ".storybook/**/*",
     "tests",
     ".next/types/**/*.ts"
   ],

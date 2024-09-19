@@ -2,8 +2,8 @@
 
 import { useForm } from 'react-hook-form';
 import { useCallback, useEffect, useState } from 'react';
-import { TextInput } from '@/client/components/fields/text-input';
-import { Button } from '@/client/components/button/button';
+import { TextInput } from '@/client/components/base/fields/text-input';
+import { Button } from '@/client/components/base/button/button';
 
 interface FormData {
   password: string;

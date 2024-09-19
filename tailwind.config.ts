@@ -119,7 +119,13 @@ const config: Config = {
           {
             lineHeight: '1.4',
           },
-        ]
+        ],
+        tiny: [
+          '13px',
+          {
+            lineHeight: '1.4',
+          },
+        ],
       },
     },
   },

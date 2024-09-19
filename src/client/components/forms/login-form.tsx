@@ -2,9 +2,9 @@
 
 import { useForm } from 'react-hook-form';
 import { useCallback, useEffect, useState } from 'react';
-import { TextInput } from '@/client/components/fields/text-input';
-import { Link } from '@/client/components/link/link';
-import { Button } from '@/client/components/button/button';
+import { TextInput } from '@/client/components/base/fields/text-input';
+import { Link } from '@/client/components/base/links/link';
+import { Button } from '@/client/components/base/button/button';
 
 interface FormData {
   email: string;
@@ -59,8 +59,6 @@ export const LoginForm = () => {
       />
       <Link className='text-base' href='/forgot-password'>Forgot password?</Link>
       <Button type='submit' disabled={disabled}>Sign in</Button>
-
-      <span className='text-brand-secondary text-small'>By signing in, I agree to the <Link>Terms and Conditions</Link> and <Link>Privacy Policy</Link>.</span>
     </form>
   );
 }
