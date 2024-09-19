@@ -2,8 +2,7 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/client/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
@@ -20,11 +19,15 @@ const config: Config = {
             tertiary: '#e6e6e6',
           },
         },
+        disabled: {
+          DEFAULT: '#d9d9d9',
+        }
       },
 
       // Border Colors
       borderColor: {
         DEFAULT: '#d9d9d9',
+        disabled: '#d3d3d3',
         hover: '#777777'
       },
 
@@ -44,7 +47,7 @@ const config: Config = {
         disabled: {
           DEFAULT: '#b3b3b3',
         },
-        link: '#0c23ce',
+        link: '#0c63ce',
         positive: {
           DEFAULT: '#02542d',
           secondary: '#009951',
@@ -79,24 +82,42 @@ const config: Config = {
         }
       },
 
+      // Font Families
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+      },
+
       // Font Sizes
       fontSize: {
         subtitle: [
           '32px',
           {
-            lineHeight: '38.4px',
+            lineHeight: '1.2',
           },
+        ],
+        heading: [
+          '24px',
+          {
+            fontWeight: 600,
+            lineHeight: '1.2',
+          },
+        ],
+        subheading: [
+          '20px',
+          {
+            lineHeight: '1.2',
+          }
         ],
         base: [
           '16px',
           {
-            lineHeight: '22.4px',
+            lineHeight: '1.4',
           },
         ],
         small: [
           '14px',
           {
-            lineHeight: '19.6px',
+            lineHeight: '1.4',
           },
         ]
       },

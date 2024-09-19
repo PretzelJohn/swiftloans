@@ -8,7 +8,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const variants: Record<string, string> = {
   primary: 'bg-brand text-on-brand hover:bg-brand-hover',
   neutral: '',
-  disabled: '',
+  disabled: 'bg-disabled text-disabled border border-disabled',
 }
 
 export const Button = ({
@@ -19,9 +19,10 @@ export const Button = ({
   return (
     <button
       className={clsx(
-        'h-10 rounded-lg bg-brand hover:bg-brand-hover',
+        'h-10 rounded-lg',
         variants[disabled ? 'disabled' : variant]
       )}
+      disabled={disabled}
       {...props}
     />
   );

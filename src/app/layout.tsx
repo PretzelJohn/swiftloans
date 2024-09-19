@@ -1,10 +1,16 @@
 import type { Metadata } from 'next';
+import {Inter} from 'next/font/google';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Swift Loans',
   description: 'Home',
 };
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
 
 export default function RootLayout({
   children,
@@ -22,7 +28,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <title>Swift Loans</title>
       </head>
-      <body className='antialiased bg-white min-h-svh text-brand-default'>
+      <body className={`antialiased bg-white min-h-svh text-brand ${inter.variable} font-sans font-normal`}>
         {children}
       </body>
     </html>
