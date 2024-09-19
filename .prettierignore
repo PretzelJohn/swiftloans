@@ -1,0 +1,14 @@
+# Ignore artifacts:
+build
+coverage
+
+node_modules
+dist
+**/coverage
+.next
+.vercel
+.history
+.githooks
+package-lock.json
+generated
+playwright-report

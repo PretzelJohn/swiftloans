@@ -1,0 +1,45 @@
+{
+  "extends": "@tsconfig/next/tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "src",
+    ".storybook/**/*",
+    "tests",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    /* Import paths */
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    /* Strict type-checking rules */
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    /* We don't require explicitly typing optional types */
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    /* We are okay with using dot notation for indexed types */
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "allowUmdGlobalAccess": false,
+    "noResolve": false,
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true
+  }
+}
