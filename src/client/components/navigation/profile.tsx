@@ -25,4 +25,4 @@ export const Profile = ({ avatarUrl, name, role }: ProfileProps) => {
       </div>
     </div>
   );
-}
+};

@@ -5,10 +5,21 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   onClick?: () => void;
 }
 
-export const Link = ({ href = '', target = '_self', onClick, className, children }: PropsWithChildren<LinkProps>) => {
+export const Link = ({
+  href = '',
+  target = '_self',
+  onClick,
+  className,
+  children,
+}: PropsWithChildren<LinkProps>) => {
   return (
-    <a className={twMerge('text-link hover:underline', className)} href={href} target={target} onClick={onClick}>
+    <a
+      className={twMerge('text-link hover:underline', className)}
+      href={href}
+      target={target}
+      onClick={onClick}
+    >
       {children}
     </a>
   );
-}
+};

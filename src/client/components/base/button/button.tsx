@@ -7,7 +7,7 @@ const variants: Record<Variant, string> = {
   primary: 'bg-brand text-on-brand hover:bg-brand-hover',
   secondary: '',
   disabled: 'bg-disabled text-disabled border border-disabled',
-}
+};
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary';
@@ -28,4 +28,4 @@ export const Button = ({
       {...props}
     />
   );
-}
+};

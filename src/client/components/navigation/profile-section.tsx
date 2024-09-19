@@ -3,9 +3,7 @@
 import { useCallback, useState } from 'react';
 import { Popover } from 'react-tiny-popover';
 import { ProfileMenu } from '@/client/components/menus/profile-menu';
-import ChevronDownIcon from '@/assets/icons/chevron-down.svg';
-import { twMerge } from 'tailwind-merge';
-import { Profile } from '@/client/components/navigation/profile';
+import { ProfileTrigger } from '@/client/components/navigation/profile-trigger';
 
 export const ProfileSection = () => {
   // TODO: load profile section details from db
@@ -31,20 +29,13 @@ export const ProfileSection = () => {
       onClickOutside={closeProfileMenu}
       content={<ProfileMenu onClose={closeProfileMenu} />}
     >
-      <div
-        className='group flex gap-8 items-center justify-between w-full py-0.5 px-1 cursor-pointer'
-        onClick={toggleProfileMenu}
-      >
-        <Profile
-          avatarUrl={avatarUrl}
-          name={name}
-          role={role}
-        />
-
-        <div className='text-brand-tertiary group-hover:text-brand-quaternary'>
-          <ChevronDownIcon className={twMerge('h-4 w-4 shrink-0 transition-all', !profileMenuOpen && '-rotate-180')} />
-        </div>
-      </div>
+      <ProfileTrigger
+        avatarUrl={avatarUrl}
+        name={name}
+        role={role}
+        open={profileMenuOpen}
+        toggleOpen={toggleProfileMenu}
+      />
     </Popover>
   );
-}
+};

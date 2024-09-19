@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useForm } from 'react-hook-form';
 import { useCallback, useEffect, useState } from 'react';
@@ -24,21 +24,27 @@ export const ResetPasswordForm = () => {
 
   const [disabled, setDisabled] = useState<boolean>(true);
 
-  const onSubmit = useCallback((data: FormData) => {
-    console.log(data);
-    // TODO: send POST request to tRPC API
-    setError('password', { type: 'value', message: ERROR });
-  }, [setError]);
+  const onSubmit = useCallback(
+    (data: FormData) => {
+      console.log(data);
+      // TODO: send POST request to tRPC API
+      setError('password', { type: 'value', message: ERROR });
+    },
+    [setError]
+  );
 
   useEffect(() => {
     setDisabled(!password);
   }, [password]);
 
   return (
-    <form className='flex flex-col gap-6 w-full' onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className='flex flex-col gap-6 w-full'
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <TextInput
         type='password'
-        label="New password"
+        label='New password'
         placeholder='••••••••••'
         {...register('password', {
           required: 'Please enter a new password.',
@@ -46,7 +52,9 @@ export const ResetPasswordForm = () => {
         error={errors.password?.message}
       />
 
-      <Button type='submit' disabled={disabled}>Save</Button>
+      <Button type='submit' disabled={disabled}>
+        Save
+      </Button>
     </form>
   );
-}
+};

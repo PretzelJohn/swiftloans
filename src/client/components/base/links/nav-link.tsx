@@ -12,15 +12,24 @@ const variants: Record<Variant, string> = {
   active: 'text-on-brand',
 };
 
-export const NavLink = ({ href, children }: PropsWithChildren<NavLinkProps>) => {
+export const NavLink = ({
+  href,
+  children,
+}: PropsWithChildren<NavLinkProps>) => {
   const pathname = usePathname();
-  
+
   const active = href && pathname.startsWith(href);
   const variant = active ? 'active' : 'default';
 
   return (
-    <a href={active ? undefined : href} className={twMerge('flex items-center gap-2 px-1 py-2 text-small', variants[variant])}>
+    <a
+      href={active ? undefined : href}
+      className={twMerge(
+        'flex items-center gap-2 px-1 py-2 text-small',
+        variants[variant]
+      )}
+    >
       {children}
     </a>
   );
-}
+};

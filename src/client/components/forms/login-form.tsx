@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useForm } from 'react-hook-form';
 import { useCallback, useEffect, useState } from 'react';
@@ -11,7 +11,8 @@ interface FormData {
   password: string;
 }
 
-const UNAUTHORIZED = 'The email or password you entered is incorrect. Please try again, or reset your password.';
+const UNAUTHORIZED =
+  'The email or password you entered is incorrect. Please try again, or reset your password.';
 
 export const LoginForm = () => {
   const {
@@ -27,21 +28,27 @@ export const LoginForm = () => {
 
   const [disabled, setDisabled] = useState<boolean>(true);
 
-  const onSubmit = useCallback((data: FormData) => {
-    console.log(data);
-    // TODO: send POST request to tRPC API
-    setError('password', { type: 'value', message: UNAUTHORIZED });
-  }, [setError]);
+  const onSubmit = useCallback(
+    (data: FormData) => {
+      console.log(data);
+      // TODO: send POST request to tRPC API
+      setError('password', { type: 'value', message: UNAUTHORIZED });
+    },
+    [setError]
+  );
 
   useEffect(() => {
     setDisabled(!email || !password);
   }, [email, password]);
 
   return (
-    <form className='flex flex-col gap-6 w-full' onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className='flex flex-col gap-6 w-full'
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <TextInput
         type='email'
-        label="Email"
+        label='Email'
         placeholder='you@example.com'
         {...register('email', {
           required: 'Please enter your email address.',
@@ -50,15 +57,19 @@ export const LoginForm = () => {
       />
       <TextInput
         type='password'
-        label="Password"
+        label='Password'
         placeholder='••••••••••'
         {...register('password', {
           required: 'Please enter your password.',
         })}
         error={errors.password?.message}
       />
-      <Link className='text-base' href='/forgot-password'>Forgot password?</Link>
-      <Button type='submit' disabled={disabled}>Sign in</Button>
+      <Link className='text-base' href='/forgot-password'>
+        Forgot password?
+      </Link>
+      <Button type='submit' disabled={disabled}>
+        Sign in
+      </Button>
     </form>
   );
-}
+};

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useForm } from 'react-hook-form';
 import { useCallback, useEffect, useState } from 'react';
@@ -28,22 +28,28 @@ export const ForgotPasswordForm = ({ setEmail }: ForgotPasswordFormProps) => {
 
   const [disabled, setDisabled] = useState<boolean>(true);
 
-  const onSubmit = useCallback((data: FormData) => {
-    console.log(data);
-    // TODO: send POST request to tRPC API
-    setError('email', { type: 'value', message: ERROR });
-    setEmail(email);
-  }, [email, setEmail, setError]);
+  const onSubmit = useCallback(
+    (data: FormData) => {
+      console.log(data);
+      // TODO: send POST request to tRPC API
+      setError('email', { type: 'value', message: ERROR });
+      setEmail(email);
+    },
+    [email, setEmail, setError]
+  );
 
   useEffect(() => {
     setDisabled(!email);
   }, [email, setEmail]);
 
   return (
-    <form className='flex flex-col gap-6 w-full' onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className='flex flex-col gap-6 w-full'
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <TextInput
         type='email'
-        label="Email"
+        label='Email'
         placeholder='you@example.com'
         {...register('email', {
           required: 'Please enter your email address.',
@@ -51,7 +57,9 @@ export const ForgotPasswordForm = ({ setEmail }: ForgotPasswordFormProps) => {
         error={errors.email?.message}
       />
 
-      <Button type='submit' disabled={disabled}>Send</Button>
+      <Button type='submit' disabled={disabled}>
+        Send
+      </Button>
     </form>
   );
-}
+};

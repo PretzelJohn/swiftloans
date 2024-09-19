@@ -10,8 +10,7 @@ export default function Login() {
 
       <span className='text-brand-secondary text-small'>
         By signing in, I agree to the{' '}
-        <Link target='_blank'>Terms and Conditions</Link>
-        {' '}and{' '}
+        <Link target='_blank'>Terms and Conditions</Link> and{' '}
         <Link target='_blank'>Privacy Policy</Link>.
       </span>
     </div>

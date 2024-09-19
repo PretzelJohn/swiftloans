@@ -21,14 +21,14 @@ const config: Config = {
         },
         disabled: {
           DEFAULT: '#d9d9d9',
-        }
+        },
       },
 
       // Border Colors
       borderColor: {
         DEFAULT: '#d9d9d9',
         disabled: '#d3d3d3',
-        hover: '#777777'
+        hover: '#777777',
       },
 
       // Text Colors
@@ -79,7 +79,7 @@ const config: Config = {
             secondary: '#682d03',
             tertiary: '#522504',
           },
-        }
+        },
       },
 
       // Font Families
@@ -106,7 +106,7 @@ const config: Config = {
           '20px',
           {
             lineHeight: '1.2',
-          }
+          },
         ],
         base: [
           '16px',
