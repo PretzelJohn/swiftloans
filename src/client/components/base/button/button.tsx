@@ -5,7 +5,7 @@ type Variant = 'primary' | 'secondary' | 'disabled';
 
 const variants: Record<Variant, string> = {
   primary: 'bg-brand text-on-brand hover:bg-brand-hover',
-  secondary: '',
+  secondary: 'text-brand-secondary hover:text-brand',
   disabled: 'bg-disabled text-disabled border border-disabled',
 };
 

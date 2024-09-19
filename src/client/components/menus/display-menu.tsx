@@ -13,10 +13,16 @@ export const DisplayMenu = () => {
 
       <Divider />
 
-      <MenuItem onClick={() => setSelected('list')} active={selected === 'list'}>
+      <MenuItem
+        onClick={() => setSelected('list')}
+        active={selected === 'list'}
+      >
         List
       </MenuItem>
-      <MenuItem onClick={() => setSelected('board')} active={selected === 'board'}>
+      <MenuItem
+        onClick={() => setSelected('board')}
+        active={selected === 'board'}
+      >
         Board
       </MenuItem>
     </Menu>

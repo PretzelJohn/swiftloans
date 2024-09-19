@@ -4,11 +4,7 @@ import { PopoverTrigger } from '@/client/features/popover/components/popover-tri
 import { PopoverContent } from '@/client/features/popover/components/popover-content';
 import type { Props } from '@/client/features/popover/components/popover';
 
-export const PopoverContainer = ({
-  children,
-  content,
-  ...props
-}: Props) => {
+export const PopoverContainer = ({ children, content, ...props }: Props) => {
   const { isOpen, open, close } = usePopoverContext();
 
   return (
@@ -17,15 +13,9 @@ export const PopoverContainer = ({
       isOpen={isOpen}
       onClickOutside={close}
       padding={props.padding ?? 16}
-      content={
-        <PopoverContent>
-          {content}
-        </PopoverContent>
-      }
+      content={<PopoverContent>{content}</PopoverContent>}
     >
-      <PopoverTrigger onClick={open}>
-        {children}
-      </PopoverTrigger>
+      <PopoverTrigger onClick={open}>{children}</PopoverTrigger>
     </Popover>
   );
-}
+};

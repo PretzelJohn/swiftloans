@@ -9,7 +9,7 @@ import FileIcon from '@/assets/icons/file-text.svg';
 import Link from 'next/link';
 import { NavLink } from '@/client/components/base/links/nav-link';
 import { Divider } from '@/client/components/base/menu/divider';
-import { ProfileSection } from '@/client/features/profile/profile-section';
+import { ProfileSection } from '@/client/features/profile/components/profile-section';
 
 export const NavbarSide = () => {
   return (

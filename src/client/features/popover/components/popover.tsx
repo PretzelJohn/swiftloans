@@ -9,9 +9,7 @@ export type Props = Omit<PopoverProps, 'isOpen' | 'content'> & {
 export const Popover = ({ children, ...props }: Props) => {
   return (
     <PopoverContextProvider>
-      <PopoverContainer {...props}>
-        {children}
-      </PopoverContainer>
+      <PopoverContainer {...props}>{children}</PopoverContainer>
     </PopoverContextProvider>
   );
-}
+};

@@ -1,4 +1,4 @@
-import { NavbarTop } from '@/client/features/navigation/navbar-top';
+import { NavbarTop } from '@/client/features/navigation/components/navbar-top';
 import type { PropsWithChildren } from 'react';
 
 export default function Layout({ children }: PropsWithChildren) {

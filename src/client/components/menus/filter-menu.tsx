@@ -13,16 +13,28 @@ export const FilterMenu = () => {
 
       <Divider />
 
-      <MenuItem onClick={() => setSelected('createdOldest')} active={selected === 'createdOldest'}>
+      <MenuItem
+        onClick={() => setSelected('createdOldest')}
+        active={selected === 'createdOldest'}
+      >
         Created (Oldest)
       </MenuItem>
-      <MenuItem onClick={() => setSelected('createdNewest')} active={selected === 'createdNewest'}>
+      <MenuItem
+        onClick={() => setSelected('createdNewest')}
+        active={selected === 'createdNewest'}
+      >
         Created (Newest)
       </MenuItem>
-      <MenuItem onClick={() => setSelected('updatedOldest')} active={selected === 'updatedOldest'}>
+      <MenuItem
+        onClick={() => setSelected('updatedOldest')}
+        active={selected === 'updatedOldest'}
+      >
         Updated (Oldest)
       </MenuItem>
-      <MenuItem onClick={() => setSelected('updatedNewest')} active={selected === 'updatedNewest'}>
+      <MenuItem
+        onClick={() => setSelected('updatedNewest')}
+        active={selected === 'updatedNewest'}
+      >
         Updated (Newest)
       </MenuItem>
     </Menu>

@@ -1,6 +1,6 @@
 'use client';
 
-import { ProfileTrigger } from '@/client/features/profile/profile-trigger';
+import { ProfileTrigger } from '@/client/features/profile/components/profile-trigger';
 import { Popover } from '@/client/features/popover/components/popover';
 import { ProfileMenu } from '@/client/components/menus/profile-menu';
 
@@ -15,11 +15,7 @@ export const ProfileSection = () => {
       positions={['top', 'right', 'bottom', 'left']}
       content={<ProfileMenu />}
     >
-      <ProfileTrigger
-        avatarUrl={avatarUrl}
-        name={name}
-        role={role}
-      />
+      <ProfileTrigger avatarUrl={avatarUrl} name={name} role={role} />
     </Popover>
   );
 };

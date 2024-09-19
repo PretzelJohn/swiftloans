@@ -5,14 +5,12 @@ interface PopoverTriggerProps extends PropsWithChildren {
 }
 
 // eslint-disable-next-line react/display-name
-export const PopoverTrigger = forwardRef<HTMLDivElement, PopoverTriggerProps>(({ onClick, children }: PopoverTriggerProps, ref) => {
-  return (
-    <div
-      className='cursor-pointer'
-      onClick={onClick}
-      ref={ref}
-    >
-      {children}
-    </div>
-  );
-});
+export const PopoverTrigger = forwardRef<HTMLDivElement, PopoverTriggerProps>(
+  ({ onClick, children }: PopoverTriggerProps, ref) => {
+    return (
+      <div className='cursor-pointer' onClick={onClick} ref={ref}>
+        {children}
+      </div>
+    );
+  }
+);

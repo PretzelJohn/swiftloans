@@ -1,4 +1,4 @@
-import { Profile } from '@/client/features/profile/profile';
+import { Profile } from '@/client/features/profile/components/profile';
 import ChevronDownIcon from '@/assets/icons/chevron-down.svg';
 import { twMerge } from 'tailwind-merge';
 import { usePopoverContext } from '@/client/features/popover/providers/popover-context-provider';
@@ -10,7 +10,11 @@ interface ProfileTriggerProps {
 }
 
 // eslint-disable-next-line react/display-name
-export const ProfileTrigger = ({ avatarUrl, name, role }: ProfileTriggerProps) => {
+export const ProfileTrigger = ({
+  avatarUrl,
+  name,
+  role,
+}: ProfileTriggerProps) => {
   const { isOpen } = usePopoverContext();
 
   return (
@@ -27,4 +31,4 @@ export const ProfileTrigger = ({ avatarUrl, name, role }: ProfileTriggerProps) =
       </div>
     </div>
   );
-}
+};

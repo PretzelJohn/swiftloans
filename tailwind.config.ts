@@ -19,13 +19,25 @@ const config: Config = {
             tertiary: '#e6e6e6',
           },
         },
+        danger: {
+          secondary: '#fdd3d0',
+        },
         disabled: {
           DEFAULT: '#d9d9d9',
+        },
+        positive: {
+          secondary: '#cff7d3',
         },
       },
 
       // Border Colors
       borderColor: {
+        DEFAULT: '#d9d9d9',
+        disabled: '#d3d3d3',
+        hover: '#777777',
+      },
+
+      outlineColor: {
         DEFAULT: '#d9d9d9',
         disabled: '#d3d3d3',
         hover: '#777777',
@@ -94,40 +106,40 @@ const config: Config = {
       // Font Sizes
       fontSize: {
         subtitle: [
-          '32px',
+          '2rem',
           {
             lineHeight: '1.2',
           },
         ],
         heading: [
-          '24px',
+          '1.5rem',
           {
             fontWeight: 600,
             lineHeight: '1.2',
           },
         ],
         subheading: [
-          '20px',
+          '1.25rem',
           {
             lineHeight: '1.2',
           },
         ],
         base: [
-          '16px',
+          '1rem',
           {
             lineHeight: '1.4',
           },
         ],
         small: [
-          '14px',
+          '0.875rem',
           {
             lineHeight: '1.4',
           },
         ],
         tiny: [
-          '13px',
+          '0.75rem',
           {
-            lineHeight: '1.4',
+            lineHeight: '1',
           },
         ],
       },
