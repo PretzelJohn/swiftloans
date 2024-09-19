@@ -4,26 +4,25 @@ import UsersIcon from '@/assets/icons/users.svg';
 import { Divider } from '@/client/components/base/menu/divider';
 import PowerIcon from '@/assets/icons/power.svg';
 import { Menu } from '@/client/components/base/menu/menu';
+import { usePopoverContext } from '@/client/features/popover/providers/popover-context-provider';
 
-interface ProfileMenuProps {
-  onClose: () => void;
-}
+export const ProfileMenu = () => {
+  const { close } = usePopoverContext();
 
-export const ProfileMenu = ({ onClose }: ProfileMenuProps) => {
   return (
     <Menu>
-      <MenuItem onClick={onClose}>
+      <MenuItem onClick={close}>
         <GearIcon className='h-5 w-5 shrink-0' />
         Settings
       </MenuItem>
-      <MenuItem onClick={onClose}>
+      <MenuItem onClick={close}>
         <UsersIcon className='h-5 w-5 shrink-0' />
         Manage Team
       </MenuItem>
 
       <Divider />
 
-      <MenuItem onClick={onClose}>
+      <MenuItem onClick={close}>
         <PowerIcon className='h-5 w-5 shrink-0' />
         Sign Out
       </MenuItem>

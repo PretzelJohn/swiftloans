@@ -1,4 +1,4 @@
-import { NavbarSide } from '@/client/components/navigation/navbar-side';
+import { NavbarSide } from '@/client/features/navigation/navbar-side';
 import type { PropsWithChildren } from 'react';
 
 export default function Layout({ children }: PropsWithChildren) {

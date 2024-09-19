@@ -31,6 +31,11 @@ const config: Config = {
         hover: '#777777',
       },
 
+      // Global Colors
+      colors: {
+        link: '#0c63ce',
+      },
+
       // Text Colors
       textColor: {
         brand: {
@@ -47,7 +52,6 @@ const config: Config = {
         disabled: {
           DEFAULT: '#b3b3b3',
         },
-        link: '#0c63ce',
         positive: {
           DEFAULT: '#02542d',
           secondary: '#009951',

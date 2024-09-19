@@ -4,8 +4,8 @@ import { twMerge } from 'tailwind-merge';
 type Variant = 'default' | 'active';
 
 const variants: Record<Variant, string> = {
-  default: 'text-brand hover:bg-brand-tertiary hover:text-on-brand-tertiary',
-  active: 'bg-brand-tertiary text-on-brand-tertiary',
+  default: 'text-brand hover:bg-brand-secondary hover:text-on-brand-secondary',
+  active: 'bg-link text-white',
 };
 
 interface MenuItemProps {
