@@ -3,7 +3,7 @@ import { PopoverContainer } from '@/client/features/popover/components/popover-c
 import type { PopoverProps } from 'react-tiny-popover';
 
 export type Props = Omit<PopoverProps, 'isOpen' | 'content'> & {
-  content: JSX.Element;
+  content: React.ReactNode;
 };
 
 export const Popover = ({ children, ...props }: Props) => {

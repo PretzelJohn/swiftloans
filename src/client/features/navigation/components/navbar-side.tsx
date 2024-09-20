@@ -7,16 +7,16 @@ import UsersIcon from '@/assets/icons/users.svg';
 import PaperclipIcon from '@/assets/icons/paperclip.svg';
 import FileIcon from '@/assets/icons/file-text.svg';
 import Link from 'next/link';
-import { NavLink } from '@/client/components/base/links/nav-link';
-import { Divider } from '@/client/components/base/menu/divider';
+import { NavLink } from '@/client/components/links/nav-link';
+import { Divider } from '@/client/components/menu/divider';
 import { ProfileSection } from '@/client/features/profile/components/profile-section';
 
 export const NavbarSide = () => {
   return (
     <nav className='flex flex-col gap-4 justify-between h-svh py-8 px-6 bg-brand text-on-brand min-w-60'>
       <div className='flex flex-col gap-12'>
-        <Link href='/public'>
-          <Logo className='h-6 shrink-0' />
+        <Link href='/'>
+          <Logo className='h-6 shrink-0' name='Home' />
         </Link>
 
         <div className='flex flex-col gap-2 w-full'>

@@ -1,4 +1,4 @@
-import { ForgotPasswordForm } from '@/client/components/forms/forgot-password-form';
+import { ForgotPasswordForm } from '@/client/features/login/components/forgot-password-form';
 
 interface ForgotPasswordPageProps {
   setEmail: (email: string) => void;

@@ -1,5 +1,5 @@
-import { LoginForm } from '@/client/components/forms/login-form';
-import { Link } from '@/client/components/base/links/link';
+import { LoginForm } from '@/client/features/login/components/login-form';
+import { Link } from '@/client/components/links/link';
 
 export default function Login() {
   return (

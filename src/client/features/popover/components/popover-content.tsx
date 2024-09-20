@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 
 interface PopoverContentProps {
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 export const PopoverContent = ({ children }: PopoverContentProps) => {

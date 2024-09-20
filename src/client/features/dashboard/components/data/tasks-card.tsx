@@ -1,15 +1,16 @@
-import { Card } from '@/client/components/base/card/card';
+import { Card } from '@/client/components/card/card';
 import LayerIcon from '@/assets/icons/layers.svg';
-import { Link } from '@/client/components/base/links/link';
+import { Link } from '@/client/components/links/link';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { useCallback } from 'react';
-import { type Status, StatusIcon } from '@/client/features/tasks/status-icon';
+import { StatusIcon } from '@/client/features/tasks/components/status-icon';
+import type { TaskStatus } from '@/client/features/tasks/types';
 
 dayjs.extend(relativeTime);
 
 type Task = {
-  status: Status;
+  status: TaskStatus;
   name: string;
   lastUpdated: number;
 };

@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge';
 import ActivityIcon from '@/assets/icons/activity.svg';
-import { Tag } from '@/client/components/base/tag/tag';
+import { Tag } from '@/client/components/tag/tag';
 
 type Variant = 'default' | 'active';
 
@@ -37,7 +37,7 @@ export const MetricCard = ({
       onClick={onClick}
     >
       <div className='flex w-full items-center justify-between gap-2'>
-        <h3 className='text-small font-semibold truncate'>{name}</h3>
+        <h2 className='text-small font-semibold truncate'>{name}</h2>
 
         <div className={twMerge('p-1 rounded', active && 'bg-white')}>
           <ActivityIcon className='h-4 w-4 shrink-0 text-link' />
@@ -45,7 +45,7 @@ export const MetricCard = ({
       </div>
 
       <div className='flex flex-col gap-2 text-left'>
-        <h2 className='text-heading'>{value}</h2>
+        <h3 className='text-heading'>{value}</h3>
 
         <Tag variant={isPositive ? 'positive' : 'danger'}>
           {isPositive && '+'}

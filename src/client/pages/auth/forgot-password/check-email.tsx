@@ -1,4 +1,4 @@
-import { Link } from '@/client/components/base/links/link';
+import { Link } from '@/client/components/links/link';
 
 interface CheckEmailPageProps {
   email: string;

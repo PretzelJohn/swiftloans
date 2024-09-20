@@ -1,6 +1,6 @@
-import { Card } from '@/client/components/base/card/card';
+import { Card } from '@/client/components/card/card';
 import FileTextIcon from '@/assets/icons/file-text.svg';
-import { Link } from '@/client/components/base/links/link';
+import { Link } from '@/client/components/links/link';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { useCallback } from 'react';

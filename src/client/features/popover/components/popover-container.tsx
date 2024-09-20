@@ -9,10 +9,10 @@ export const PopoverContainer = ({ children, content, ...props }: Props) => {
 
   return (
     <Popover
-      {...props}
-      isOpen={isOpen}
       onClickOutside={close}
       padding={props.padding ?? 16}
+      isOpen={isOpen}
+      {...props}
       content={<PopoverContent>{content}</PopoverContent>}
     >
       <PopoverTrigger onClick={open}>{children}</PopoverTrigger>

@@ -2,7 +2,7 @@ import {
   titles,
   useMetricContext,
 } from '@/client/features/dashboard/providers/metric-context-provider';
-import { Card } from '@/client/components/base/card/card';
+import { Card } from '@/client/components/card/card';
 
 export const Chart = () => {
   const { selected } = useMetricContext();

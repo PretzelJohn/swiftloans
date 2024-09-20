@@ -2,7 +2,7 @@
 
 import { MetricCardGroup } from '@/client/features/dashboard/components/metrics/metric-card-group';
 import { Chart } from '@/client/features/dashboard/components/metrics/chart';
-import { Card } from '@/client/components/base/card/card';
+import { Card } from '@/client/components/card/card';
 
 export const MetricSection = () => {
   return (

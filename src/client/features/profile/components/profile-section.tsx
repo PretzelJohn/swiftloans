@@ -2,7 +2,7 @@
 
 import { ProfileTrigger } from '@/client/features/profile/components/profile-trigger';
 import { Popover } from '@/client/features/popover/components/popover';
-import { ProfileMenu } from '@/client/components/menus/profile-menu';
+import { ProfileMenu } from '@/client/features/profile/components/profile-menu';
 
 export const ProfileSection = () => {
   // TODO: load profile section details from db
@@ -12,6 +12,7 @@ export const ProfileSection = () => {
 
   return (
     <Popover
+      align='start'
       positions={['top', 'right', 'bottom', 'left']}
       content={<ProfileMenu />}
     >

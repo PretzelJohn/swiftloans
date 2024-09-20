@@ -2,15 +2,15 @@ import {
   type MetricOption,
   useMetricContext,
 } from '@/client/features/dashboard/providers/metric-context-provider';
-import { LeadsTable } from '@/client/components/tables/dashboard/leads-table';
-import { ApplicationsTable } from '@/client/components/tables/dashboard/applications-table';
-import { DealsTable } from '@/client/components/tables/dashboard/deals-table';
-import { SalesTable } from '@/client/components/tables/dashboard/sales-table';
-import { Card } from '@/client/components/base/card/card';
+import { NewLeadsTable } from '@/client/features/dashboard/components/data/tables/new-leads-table';
+import { NewApplicationsTable } from '@/client/features/dashboard/components/data/tables/new-applications-table';
+import { DealsTable } from '@/client/features/dashboard/components/data/tables/deals-table';
+import { SalesTable } from '@/client/features/dashboard/components/data/tables/sales-table';
+import { Card } from '@/client/components/card/card';
 
 export const tables: Record<MetricOption, () => JSX.Element> = {
-  leads: LeadsTable,
-  applications: ApplicationsTable,
+  leads: NewLeadsTable,
+  applications: NewApplicationsTable,
   deals: DealsTable,
   sales: SalesTable,
 };
