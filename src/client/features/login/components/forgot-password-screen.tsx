@@ -1,10 +1,13 @@
+import type { Dispatch, SetStateAction } from 'react';
 import { ForgotPasswordForm } from '@/client/features/login/components/forgot-password-form';
 
-interface ForgotPasswordPageProps {
-  setEmail: (email: string) => void;
+interface ForgotPasswordScreenProps {
+  setEmail: Dispatch<SetStateAction<string>>;
 }
 
-export const ForgotPasswordPage = ({ setEmail }: ForgotPasswordPageProps) => {
+export const ForgotPasswordScreen = ({
+  setEmail,
+}: ForgotPasswordScreenProps) => {
   return (
     <>
       <h1 className='text-subtitle text-center'>Forgot password?</h1>

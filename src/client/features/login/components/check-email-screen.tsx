@@ -1,11 +1,14 @@
 import { Link } from '@/client/components/links/link';
 
-interface CheckEmailPageProps {
+interface CheckEmailScreenProps {
   email: string;
-  tryAgain: () => void;
+  resetEmail: () => void;
 }
 
-export const CheckEmailPage = ({ email, tryAgain }: CheckEmailPageProps) => {
+export const CheckEmailScreen = ({
+  email,
+  resetEmail,
+}: CheckEmailScreenProps) => {
   return (
     <>
       <h1 className='text-subtitle text-center'>Check your email</h1>
@@ -19,7 +22,7 @@ export const CheckEmailPage = ({ email, tryAgain }: CheckEmailPageProps) => {
         <h2 className='text-subheading'>Didn't get it yet?</h2>
         <span className='text-brand-secondary'>
           Please wait a few minutes, then{' '}
-          <Link onClick={tryAgain}>try again</Link>.
+          <Link onClick={resetEmail}>try again</Link>.
         </span>
       </div>
     </>
