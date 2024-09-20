@@ -10,7 +10,7 @@ export type TaskStatusValue = {
   id: string;
   name: string;
   icon: Icon;
-}
+};
 
 export const taskStatus: Record<TaskStatus, TaskStatusValue> = {
   notStarted: {

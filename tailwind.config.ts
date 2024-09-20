@@ -20,6 +20,7 @@ const config: Config = {
           },
         },
         danger: {
+          DEFAULT: '#ec221f',
           secondary: '#fdd3d0',
         },
         disabled: {

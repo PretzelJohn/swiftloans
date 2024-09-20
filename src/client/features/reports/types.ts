@@ -3,7 +3,7 @@ export type ReportCategory = 'leads' | 'pipeline' | 'sales' | 'task';
 export type ReportCategoryValue = {
   id: string;
   name: string;
-}
+};
 
 export const reportCategory: Record<ReportCategory, ReportCategoryValue> = {
   leads: {

@@ -1,6 +1,8 @@
 import {
-  createContext, type Dispatch,
-  type PropsWithChildren, type SetStateAction,
+  createContext,
+  type Dispatch,
+  type PropsWithChildren,
+  type SetStateAction,
   useContext,
   useMemo,
   useState,
@@ -32,31 +34,28 @@ interface ViewContextProviderProps {
   defaultData?: string[][];
 }
 
-export const ViewContextProvider = ({ defaultData = [[]], children }: PropsWithChildren<ViewContextProviderProps>) => {
+export const ViewContextProvider = ({
+  defaultData = [[]],
+  children,
+}: PropsWithChildren<ViewContextProviderProps>) => {
   const [data, setData] = useState<string[][]>(defaultData);
   const [sortBy, setSortBy] = useState<number>(0);
   const [filterBy, setFilterBy] = useState<number[]>([]);
   const [viewBy, setViewBy] = useState<number>(0);
 
-  const context = useMemo<ViewContext>(() => ({
-    data,
-    setData,
-    sortBy,
-    setSortBy,
-    filterBy,
-    setFilterBy,
-    viewBy,
-    setViewBy,
-  }), [
-    data,
-    setData,
-    sortBy,
-    setSortBy,
-    filterBy,
-    setFilterBy,
-    viewBy,
-    setViewBy,
-  ]);
+  const context = useMemo<ViewContext>(
+    () => ({
+      data,
+      setData,
+      sortBy,
+      setSortBy,
+      filterBy,
+      setFilterBy,
+      viewBy,
+      setViewBy,
+    }),
+    [data, setData, sortBy, setSortBy, filterBy, setFilterBy, viewBy, setViewBy]
+  );
 
   return <Context.Provider value={context}>{children}</Context.Provider>;
 };

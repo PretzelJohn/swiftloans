@@ -16,7 +16,7 @@ export const NavbarSide = () => {
     <nav className='flex flex-col gap-4 justify-between h-svh py-8 px-6 bg-brand text-on-brand min-w-60'>
       <div className='flex flex-col gap-12'>
         <Link href='/'>
-          <Logo className='h-6 shrink-0' name='Home' />
+          <Logo className='h-6 shrink-0' name='Logo' />
         </Link>
 
         <div className='flex flex-col gap-2 w-full'>

@@ -8,7 +8,11 @@ import { SwitchInput } from '@/client/components/fields/switch-input';
 import SaveIcon from '@/assets/icons/save.svg';
 import { TextareaInput } from '@/client/components/fields/textarea-input';
 import { SelectInput } from '@/client/components/fields/select-input';
-import { type Contact, contactSource, type ContactSource } from '@/client/features/contacts/types';
+import {
+  type Contact,
+  contactSource,
+  type ContactSource,
+} from '@/client/features/contacts/types';
 
 interface FormData {
   firstName: string;
@@ -58,27 +62,27 @@ export const ContactForm = ({ contact }: ContactFormProps) => {
       // TODO: send POST request to tRPC API
       setError('firstName', { type: 'value', message: ERROR });
     },
-    [setError],
+    [setError]
   );
 
   return (
     <form
-      className="flex flex-col gap-4 w-fit max-w-full"
+      className='flex flex-col gap-4 w-fit max-w-full'
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="font-semibold">
+      <h1 className='font-semibold'>
         {contact ? 'Edit contact...' : 'Create a new contact...'}
       </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div className="col-span-1 lg:col-span-2 flex flex-wrap gap-4">
-          <div className="flex flex-col gap-2 w-[280px] max-w-full">
-            <h2 className="text-small font-semibold">Contact Information</h2>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
+        <div className='col-span-1 lg:col-span-2 flex flex-wrap gap-4'>
+          <div className='flex flex-col gap-2 w-[280px] max-w-full'>
+            <h2 className='text-small font-semibold'>Contact Information</h2>
 
-            <div className="flex flex-col gap-4">
+            <div className='flex flex-col gap-4'>
               <TextInput
-                label="First Name"
-                placeholder="John"
+                label='First Name'
+                placeholder='John'
                 {...register('firstName', {
                   required: 'Please enter a first name for this contact.',
                 })}
@@ -86,8 +90,8 @@ export const ContactForm = ({ contact }: ContactFormProps) => {
               />
 
               <TextInput
-                label="Last Name"
-                placeholder="Smith"
+                label='Last Name'
+                placeholder='Smith'
                 {...register('lastName', {
                   required: 'Please enter a last name for this contact.',
                 })}
@@ -95,21 +99,21 @@ export const ContactForm = ({ contact }: ContactFormProps) => {
               />
 
               <TextInput
-                label="Email"
-                placeholder="john.smith@example.com"
+                label='Email'
+                placeholder='john.smith@example.com'
                 {...register('email')}
                 error={errors.email?.message}
               />
 
               <TextInput
-                label="Phone"
-                placeholder="(123) 456-7890"
+                label='Phone'
+                placeholder='(123) 456-7890'
                 {...register('phone')}
                 error={errors.phone?.message}
               />
 
               <SelectInput
-                label="Source"
+                label='Source'
                 {...register('source')}
                 options={Object.values(contactSource).map((source) => {
                   return {
@@ -121,51 +125,51 @@ export const ContactForm = ({ contact }: ContactFormProps) => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 w-[280px] max-w-full">
-            <h2 className="text-small font-semibold">Loan Eligibility</h2>
+          <div className='flex flex-col gap-2 w-[280px] max-w-full'>
+            <h2 className='text-small font-semibold'>Loan Eligibility</h2>
 
-            <div className="flex flex-col gap-4 h-full">
+            <div className='flex flex-col gap-4 h-full'>
               <TextInput
-                label="Amount Needed"
-                placeholder="$10,000"
+                label='Amount Needed'
+                placeholder='$10,000'
                 {...register('amountNeeded')}
                 error={errors.amountNeeded?.message}
               />
 
               <TextInput
-                label="Years In Business"
-                placeholder="7"
+                label='Years In Business'
+                placeholder='7'
                 {...register('yearsInBusiness')}
                 error={errors.yearsInBusiness?.message}
               />
 
               <TextInput
-                label="Annual Revenue"
-                placeholder="$200,000"
+                label='Annual Revenue'
+                placeholder='$200,000'
                 {...register('annualRevenue')}
                 error={errors.annualRevenue?.message}
               />
 
               <TextInput
-                label="Personal FICO"
-                placeholder="750"
+                label='Personal FICO'
+                placeholder='750'
                 {...register('personalFico')}
                 error={errors.personalFico?.message}
               />
 
-              <div className="h-4" />
+              <div className='h-4' />
 
               <SwitchInput
-                label="Profitable tax return?"
+                label='Profitable tax return?'
                 {...register('profitable')}
               />
             </div>
           </div>
         </div>
 
-        <div className="col-span-1 h-full w-full">
+        <div className='col-span-1 h-full w-full'>
           <TextareaInput
-            label="Notes"
+            label='Notes'
             rows={10}
             {...register('notes', {
               required: 'Please enter a title for this task.',
@@ -174,9 +178,9 @@ export const ContactForm = ({ contact }: ContactFormProps) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-end gap-2">
-        <Button type="submit">
-          <SaveIcon className="h-4 w-4 shrink-0" />
+      <div className='flex items-center justify-end gap-2'>
+        <Button type='submit'>
+          <SaveIcon className='h-4 w-4 shrink-0' />
           Save
         </Button>
       </div>

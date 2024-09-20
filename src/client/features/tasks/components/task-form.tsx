@@ -4,7 +4,11 @@ import { useForm } from 'react-hook-form';
 import { useCallback } from 'react';
 import { TextInput } from '@/client/components/fields/text-input';
 import { Button } from '@/client/components/button/button';
-import { type Task, taskStatus, type TaskStatus } from '@/client/features/tasks/types';
+import {
+  type Task,
+  taskStatus,
+  type TaskStatus,
+} from '@/client/features/tasks/types';
 import { SwitchInput } from '@/client/components/fields/switch-input';
 import SaveIcon from '@/assets/icons/save.svg';
 import { TextareaInput } from '@/client/components/fields/textarea-input';
@@ -37,9 +41,11 @@ export const TaskForm = ({ task }: TaskFormProps) => {
       name: task?.name,
       description: task?.description,
       remindMe: !!task?.reminder,
-      remindTime: (dayjs(task?.reminder) ?? dayjs().add(1, 'hour')).format('YYYY-MM-DDTHH:mm'),
+      remindTime: (dayjs(task?.reminder) ?? dayjs().add(1, 'hour')).format(
+        'YYYY-MM-DDTHH:mm'
+      ),
       status: task?.status ?? 'notStarted',
-    }
+    },
   });
 
   const remindMe = watch('remindMe');

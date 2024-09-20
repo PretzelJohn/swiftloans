@@ -1,16 +1,17 @@
 import type { ButtonHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type Variant = 'primary' | 'secondary' | 'disabled';
+type Variant = 'primary' | 'secondary' | 'danger' | 'disabled';
 
 const variants: Record<Variant, string> = {
   primary: 'bg-brand text-on-brand hover:bg-brand-hover',
   secondary: 'text-brand-tertiary hover:text-brand',
+  danger: 'bg-danger text-on-danger',
   disabled: 'bg-disabled text-disabled border border-disabled',
 };
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary';
+  variant?: Variant;
 }
 
 export const Button = ({

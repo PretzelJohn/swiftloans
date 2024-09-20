@@ -9,7 +9,7 @@ export type ContactCategoryValue = {
   id: string;
   name: string;
   icon: Icon;
-}
+};
 
 export const contactCategory: Record<ContactCategory, ContactCategoryValue> = {
   error: {
@@ -34,7 +34,7 @@ export type ContactSource = 'email' | 'phone' | 'web';
 export type ContactSourceValue = {
   id: string;
   name: string;
-}
+};
 
 export const contactSource: Record<ContactSource, ContactSourceValue> = {
   email: {
@@ -49,7 +49,7 @@ export const contactSource: Record<ContactSource, ContactSourceValue> = {
     id: 'web',
     name: 'Web',
   },
-}
+};
 
 export type Contact = {
   firstName: string;

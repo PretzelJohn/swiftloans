@@ -6,7 +6,10 @@ interface ViewButtonProps {
   icon: ({ className }: { className: string }) => JSX.Element;
 }
 
-export const ViewButton = ({ children, icon }: PropsWithChildren<ViewButtonProps>) => {
+export const ViewButton = ({
+  children,
+  icon,
+}: PropsWithChildren<ViewButtonProps>) => {
   const Icon = icon;
 
   return (
@@ -21,4 +24,4 @@ export const ViewButton = ({ children, icon }: PropsWithChildren<ViewButtonProps
       </Button>
     </Popover>
   );
-}
+};

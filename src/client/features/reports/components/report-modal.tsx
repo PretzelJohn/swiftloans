@@ -7,4 +7,4 @@ export const ReportModal = () => {
       <ReportForm />
     </Modal>
   );
-}
+};

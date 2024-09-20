@@ -7,4 +7,4 @@ export const ContactModal = () => {
       <ContactForm />
     </Modal>
   );
-}
+};

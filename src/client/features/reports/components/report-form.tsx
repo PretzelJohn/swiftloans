@@ -6,7 +6,11 @@ import { TextInput } from '@/client/components/fields/text-input';
 import { Button } from '@/client/components/button/button';
 import SaveIcon from '@/assets/icons/save.svg';
 import { SelectInput } from '@/client/components/fields/select-input';
-import { type Report, reportCategory, type ReportCategory } from '@/client/features/reports/types';
+import {
+  type Report,
+  reportCategory,
+  type ReportCategory,
+} from '@/client/features/reports/types';
 import { FileInput } from '@/client/components/fields/file-input';
 
 interface FormData {
@@ -32,7 +36,7 @@ export const ReportForm = ({ report }: ReportFormProps) => {
       name: report?.name,
       category: report?.category ?? 'leads',
       files: report?.file ? [report.file] : [],
-    }
+    },
   });
 
   const onSubmit = useCallback(
@@ -73,10 +77,7 @@ export const ReportForm = ({ report }: ReportFormProps) => {
         })}
       />
 
-      <FileInput
-        label='Report'
-        {...register('files')}
-      />
+      <FileInput label='Report' {...register('files')} />
 
       <div className='flex items-center justify-end gap-2'>
         <Button type='submit'>

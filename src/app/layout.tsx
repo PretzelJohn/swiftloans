@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
+import { Inter } from 'next/font/google';
 
 export const metadata: Metadata = {
-  title: 'Swift Loans',
-  description: 'Home',
+  description: 'Swift Loans',
+  title: {
+    default: 'Swift Loans',
+    template: 'Swift Loans / %s',
+  },
 };
 
 const inter = Inter({
@@ -40,7 +43,6 @@ export default function RootLayout({
           href='/favicon-16x16.png'
         />
         <link rel='manifest' href='/site.webmanifest' />
-        <title>Swift Loans</title>
       </head>
       <body
         className={`antialiased bg-white min-h-svh text-brand ${inter.variable} font-sans font-normal`}

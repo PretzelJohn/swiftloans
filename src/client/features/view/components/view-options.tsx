@@ -22,4 +22,4 @@ export const ViewOptions = () => {
       </ViewButton>
     </div>
   );
-}
+};

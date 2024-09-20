@@ -7,4 +7,4 @@ export const TaskModal = () => {
       <TaskForm />
     </Modal>
   );
-}
+};
