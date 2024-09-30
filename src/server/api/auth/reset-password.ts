@@ -7,16 +7,14 @@ import { sendEmail } from '@/utils/mail/nodemailer';
 import { TRPCError } from '@trpc/server';
 import bcrypt from 'bcryptjs';
 
-const textTemplate = (firstName: string, path: string) =>
+const textTemplate = (firstName: string) =>
   'Swift Loans\n\n' +
   'YOUR PASSWORD HAS BEEN RESET!\n' +
   `Hi, ${firstName}\n` +
   'Your password has successfully been reset.\n' +
-  'If you did not make this change, someone else might be trying to access your account. Please reset your password with the link below:\n' +
-  `${path}\n` +
-  'Otherwise, you can ignore this email.\n';
+  'If you did not make this change, someone else might be trying to access your account.\n';
 
-const emailTemplate = (firstName: string, path: string) =>
+const emailTemplate = (firstName: string) =>
   '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n' +
   '<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="">\n' +
   '<head>\n' +
@@ -112,31 +110,7 @@ const emailTemplate = (firstName: string, path: string) =>
   '                                                                                </tr>\n' +
   '                                                                                <tr>\n' +
   '                                                                                    <td align="left">\n' +
-  '                                                                                        <p style="font-size: 16px;">If you did not make this change, someone else might be trying to access your account. Please reset your password with the button below:</p>\n' +
-  '                                                                                    </td>\n' +
-  '                                                                                </tr>\n' +
-  '                                                                                <tr>\n' +
-  `                                                                                    <td style="padding-top: 30px;" align="left"><span style="background-color: #0c63ce; border-radius: 8px; padding: 12px 16px; font-size: 16px;"><a href="${path}" style="color: white; text-decoration: none" target="_blank">Forgot password</a></span></td>\n` +
-  '                                                                                </tr>\n' +
-  '                                                                            </tbody>\n' +
-  '                                                                        </table>\n' +
-  '                                                                    </td>\n' +
-  '                                                                </tr>\n' +
-  '                                                            </tbody>\n' +
-  '                                                        </table>\n' +
-  '                                                    </td>\n' +
-  '                                                </tr>\n' +
-  '                                                <tr>\n' +
-  '                                                    <td style="background-position: left top;" align="left">\n' +
-  '                                                        <table width="100%" cellspacing="0" cellpadding="0">\n' +
-  '                                                            <tbody>\n' +
-  '                                                                <tr>\n' +
-  '                                                                    <td width="560" valign="top" align="left">\n' +
-  '                                                                        <table width="100%" cellspacing="0" cellpadding="0">\n' +
-  '                                                                            <tbody>\n' +
-  '                                                                                <tr>\n' +
-  '                                                                                    <td align="left">\n' +
-  `                                                                                        <p style="font-size: 14px;">Otherwise, you can ignore this email.</p>\n` +
+  '                                                                                        <p style="font-size: 16px;">If you did not make this change, someone else might be trying to access your account.</p>\n' +
   '                                                                                    </td>\n' +
   '                                                                                </tr>\n' +
   '                                                                            </tbody>\n' +
@@ -166,11 +140,7 @@ export const resetPassword = publicProcedure
     z.object({
       email: z.string().email(),
       token: z.string().regex(/[0-9a-f]{32}/),
-      password: z
-        .string()
-        .regex(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-        ),
+      password: z.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),
     })
   )
   .mutation(async (opts) => {
@@ -217,13 +187,12 @@ export const resetPassword = publicProcedure
     });
 
     const firstName = user.first_name;
-    const path = `${process.env.NEXT_PUBLIC_APP_URL}/forgot-password`;
 
     await sendEmail(
       user.email,
       'Your password has been reset',
-      textTemplate(firstName, path),
-      emailTemplate(firstName, path)
+      textTemplate(firstName),
+      emailTemplate(firstName)
     );
 
     return {

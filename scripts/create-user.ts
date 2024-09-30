@@ -21,7 +21,7 @@ async function main(args: string[]) {
       first_name,
       last_name,
       phone: phone ?? null,
-    }
+    },
   });
 
   console.log(user);
@@ -35,4 +35,4 @@ main(process.argv)
     console.error(e);
     await prisma.$disconnect();
     process.exit(1);
-  })
+  });
