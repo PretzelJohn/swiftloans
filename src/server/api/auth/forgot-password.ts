@@ -185,13 +185,23 @@ export const forgotPassword = publicProcedure
       })
       .then(async (user) => {
         // Skip if valid token already exists
-        const now = Date.now();
+        const now = new Date();
         if (
           !user ||
-          user.tokens.find((token) => now < token.expires_at.getTime())
+          user.tokens.find(
+            (token) => now.getTime() < token.expires_at.getTime()
+          )
         ) {
           return;
         }
+
+        await prisma.userToken.deleteMany({
+          where: {
+            expires_at: {
+              lte: now,
+            },
+          },
+        });
 
         const expireDurationMs = 15 * 60 * 1000; //15 minutes
         const userToken = await prisma.userToken.create({
