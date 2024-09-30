@@ -6,9 +6,11 @@ import { prisma } from '@/utils/prisma/prisma';
 import { TRPCError } from '@trpc/server';
 
 export const getUser = privateProcedure
-  .input(z.object({
-    id: z.string(),
-  }))
+  .input(
+    z.object({
+      id: z.string(),
+    })
+  )
   .query(async (opts) => {
     const { id } = opts.input;
 
@@ -19,12 +21,12 @@ export const getUser = privateProcedure
       select: {
         id: true,
         roles: true,
-      }
+      },
     });
 
     const targetUser = await prisma.user.findFirst({
       where: {
-        id: id
+        id: id,
       },
       select: {
         id: true,
@@ -35,14 +37,17 @@ export const getUser = privateProcedure
         avatar_url: true,
         job_title: true,
         roles: true,
-      }
+      },
     });
 
     if (!currentUser) {
       throw new TRPCError({ code: 'UNAUTHORIZED' });
     }
 
-    if (currentUser.id !== targetUser?.id && !currentUser.roles.find(role => role.name === 'admin')) {
+    if (
+      currentUser.id !== targetUser?.id &&
+      !currentUser.roles.find((role) => role.name === 'admin')
+    ) {
       throw new TRPCError({ code: 'UNAUTHORIZED' });
     }
 

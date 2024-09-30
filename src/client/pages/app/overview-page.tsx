@@ -8,9 +8,7 @@ import { MetricContextProvider } from '@/client/features/dashboard/providers/met
 export const OverviewPage = () => {
   return (
     <MetricContextProvider>
-      <TitleBar title='Overview'>
-
-      </TitleBar>
+      <TitleBar title='Overview'></TitleBar>
 
       <div className='flex flex-col gap-8'>
         <MetricSection />

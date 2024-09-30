@@ -14,5 +14,5 @@ const caller = createCallerFactory(appRouter)(createTRPCContext);
 
 export const { trpc, HydrateClient } = createHydrationHelpers<AppRouter>(
   caller,
-  getQueryClient,
+  getQueryClient
 );

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Applications',
 };
 
-export default function Applications() {
+export default async function Applications() {
   return (
     <HydrateClient>
       <ApplicationsPage />

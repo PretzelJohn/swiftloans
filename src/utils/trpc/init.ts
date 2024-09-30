@@ -8,6 +8,7 @@ const trpc = initTRPC.context<Context>().create({
 
 export const createCallerFactory = trpc.createCallerFactory;
 export const createTRPCRouter = trpc.router;
+
 export const publicProcedure = trpc.procedure;
 export const privateProcedure = trpc.procedure.use(async (opts) => {
   if (!opts.ctx.session?.user) {
@@ -17,6 +18,6 @@ export const privateProcedure = trpc.procedure.use(async (opts) => {
   return opts.next({
     ctx: {
       user: opts.ctx.session.user,
-    }
-  })
+    },
+  });
 });

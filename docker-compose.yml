@@ -6,7 +6,7 @@ services:
     command: npm run dev
     restart: always
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
       - ./prisma:/home/node/app/prisma
       - ./public:/home/node/app/public
@@ -19,7 +19,7 @@ services:
     command: postgres -c 'max_connections=200' -c 'log_statement=all'
     container_name: postgres
     ports:
-      - "5432:5432"
+      - '5432:5432'
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data

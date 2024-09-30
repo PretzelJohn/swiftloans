@@ -29,21 +29,24 @@ export const LoginForm = () => {
     setDisabled(!email || !password);
   }, [email, password]);
 
-  const onSubmit = useCallback(async (data: LoginSchema) => {
-    const result = await signIn('credentials', {
-      ...data,
-      redirect: true,
-      redirectTo: '/overview'
-    });
-
-    if (!result || result?.code) {
-      setError('password', {
-        type: 'value',
-        message: loginErrors[result?.code ?? 'none'],
+  const onSubmit = useCallback(
+    async (data: LoginSchema) => {
+      const result = await signIn('credentials', {
+        ...data,
+        redirect: true,
+        redirectTo: '/overview',
       });
-      return;
-    }
-  }, [searchParams, setError]);
+
+      if (!result || result?.code) {
+        setError('password', {
+          type: 'value',
+          message: loginErrors[result?.code ?? 'none'],
+        });
+        return;
+      }
+    },
+    [searchParams, setError]
+  );
 
   return (
     <form

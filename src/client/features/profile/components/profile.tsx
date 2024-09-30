@@ -21,7 +21,9 @@ export const Profile = ({ avatarUrl, name, jobTitle }: ProfileProps) => {
 
       <div className='flex flex-col overflow-x-hidden'>
         <p className='text-small font-semibold truncate'>{name}</p>
-        <p className='text-tiny text-brand-tertiary truncate w-full'>{jobTitle}</p>
+        <p className='text-tiny text-brand-tertiary truncate w-full'>
+          {jobTitle}
+        </p>
       </div>
     </div>
   );

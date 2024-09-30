@@ -40,7 +40,7 @@
     "compilerOptions": {
       "module": "commonjs",
       "target": "ES2017",
-      "verbatimModuleSyntax": false,
+      "verbatimModuleSyntax": false
     }
   }
 }

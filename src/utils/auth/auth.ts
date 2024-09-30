@@ -17,7 +17,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.user.id = token.sub;
       }
       return session;
-    }
+    },
   },
   pages: {
     signIn: '/login',
@@ -42,7 +42,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
           });
 
-          const isValid = user && await bcrypt.compare(password, user.password_hash);
+          const isValid =
+            user && (await bcrypt.compare(password, user.password_hash));
 
           if (!isValid) {
             return null;

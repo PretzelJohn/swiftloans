@@ -31,7 +31,7 @@ const nextConfig = {
     remotePatterns: [
       {
         hostname: 'media.licdn.com',
-      }
+      },
     ],
   },
   reactStrictMode: true,

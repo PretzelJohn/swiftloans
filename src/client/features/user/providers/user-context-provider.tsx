@@ -1,6 +1,8 @@
 import {
-  createContext, type Dispatch,
-  type PropsWithChildren, type SetStateAction,
+  createContext,
+  type Dispatch,
+  type PropsWithChildren,
+  type SetStateAction,
   useContext,
   useMemo,
   useState,
@@ -27,7 +29,10 @@ interface UserContextProviderProps {
   user: null | User;
 }
 
-export const UserContextProvider = ({ user, children }: PropsWithChildren<UserContextProviderProps>) => {
+export const UserContextProvider = ({
+  user,
+  children,
+}: PropsWithChildren<UserContextProviderProps>) => {
   const [currentUser, setCurrentUser] = useState<null | User>(user);
 
   const context = useMemo<UserContext>(
@@ -35,10 +40,7 @@ export const UserContextProvider = ({ user, children }: PropsWithChildren<UserCo
       currentUser,
       setCurrentUser,
     }),
-    [
-      currentUser,
-      setCurrentUser
-    ]
+    [currentUser, setCurrentUser]
   );
 
   return <Context.Provider value={context}>{children}</Context.Provider>;
