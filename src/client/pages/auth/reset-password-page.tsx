@@ -1,22 +1,27 @@
-import { ResetPasswordForm } from '@/client/features/auth/components/reset-password-form';
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+import { trpc } from '@/utils/trpc/client';
+import { LinkExpiredScreen } from '@/client/features/auth/components/link-expired-screen';
+import { ResetPasswordScreen } from '@/client/features/auth/components/reset-password-screen';
 
 export const ResetPasswordPage = () => {
-  return (
-    <div className='flex flex-col gap-8 max-w-[400px] w-full items-center'>
-      <h1 className='text-subtitle text-center'>Reset password</h1>
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email');
+  const token = searchParams.get('token');
 
-      <div className='flex flex-col gap-2 w-full'>
-        <p>Enter a new password for login. It must include:</p>
-        <ul className='list-disc pl-5'>
-          <li>8 characters</li>
-          <li>1 number</li>
-          <li>1 uppercase letter</li>
-          <li>1 lowercase letter</li>
-          <li>1 special character</li>
-        </ul>
-      </div>
+  if (!email || !token) {
+    return <LinkExpiredScreen />;
+  }
 
-      <ResetPasswordForm />
-    </div>
-  );
+  const userToken = trpc.getToken.useQuery({
+    email,
+    token,
+  });
+
+  if (!userToken?.data?.token?.id) {
+    return <LinkExpiredScreen />;
+  }
+
+  return <ResetPasswordScreen email={email} token={token} />;
 };

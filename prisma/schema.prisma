@@ -26,15 +26,20 @@ model User {
   job_title     String?       @db.VarChar(255)
   roles         Role[]
   tokens        UserToken[]
+
+  @@index([created_at, updated_at, first_name, last_name, phone])
 }
 
 model UserToken {
   id            String        @id @db.Uuid @default(dbgenerated("gen_random_uuid()"))
   created_at    DateTime      @default(now())
   updated_at    DateTime      @updatedAt
+  token         String        @unique @db.Char(32)
   expires_at    DateTime
-  user_id       String        @db.Uuid
-  user          User          @relation(fields: [user_id], references: [id])
+  user_email    String        @db.VarChar(100)
+  user          User          @relation(fields: [user_email], references: [email])
+
+  @@index([expires_at])
 }
 
 model Role {

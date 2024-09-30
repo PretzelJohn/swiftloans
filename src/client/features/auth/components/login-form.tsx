@@ -8,17 +8,18 @@ import { Button } from '@/client/components/button/button';
 import { loginErrors, type LoginSchema } from '@/shared/schema/login';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
+import ErrorIcon from '@/shared/assets/icons/error.svg';
 
 export const LoginForm = () => {
   const {
     register,
     formState: { errors },
-    setError,
     handleSubmit,
     watch,
   } = useForm<LoginSchema>();
 
   const searchParams = useSearchParams();
+  const errorCode = searchParams.get('code');
 
   const email = watch('email');
   const password = watch('password');
@@ -29,30 +30,21 @@ export const LoginForm = () => {
     setDisabled(!email || !password);
   }, [email, password]);
 
-  const onSubmit = useCallback(
-    async (data: LoginSchema) => {
-      const result = await signIn('credentials', {
-        ...data,
-        redirect: true,
-        redirectTo: '/overview',
-      });
-
-      if (!result || result?.code) {
-        setError('password', {
-          type: 'value',
-          message: loginErrors[result?.code ?? 'none'],
-        });
-        return;
-      }
-    },
-    [searchParams, setError]
-  );
+  const onSubmit = useCallback(async (data: LoginSchema) => {
+    await signIn('credentials', { ...data });
+  }, []);
 
   return (
     <form
       className='flex flex-col gap-6 w-full'
       onSubmit={handleSubmit(onSubmit)}
     >
+      {errorCode && (
+        <div className='flex gap-2 w-full p-4 rounded-lg bg-danger-secondary border border-danger-secondary text-on-danger-secondary'>
+          <ErrorIcon className='h-4 w-4 shrink-0' />
+          {loginErrors[errorCode]}
+        </div>
+      )}
       <TextInput
         type='email'
         label='Email'

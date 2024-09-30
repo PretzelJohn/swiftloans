@@ -36,12 +36,22 @@ const config: Config = {
         DEFAULT: '#d9d9d9',
         disabled: '#d3d3d3',
         hover: '#777777',
+        danger: {
+          DEFAULT: '#900b09',
+          secondary: '#c00f0c',
+          tertiary: '#ec221f',
+        },
       },
 
       outlineColor: {
         DEFAULT: '#d9d9d9',
         disabled: '#d3d3d3',
         hover: '#777777',
+        danger: {
+          DEFAULT: '#900b09',
+          secondary: '#c00f0c',
+          tertiary: '#ec221f',
+        },
       },
 
       // Global Colors

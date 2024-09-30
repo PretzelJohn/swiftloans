@@ -1,5 +1,3 @@
-'use client';
-
 import { useForm } from 'react-hook-form';
 import { useCallback, useEffect, useState } from 'react';
 import { TextInput } from '@/client/components/fields/text-input';
@@ -33,8 +31,8 @@ export const ForgotPasswordForm = ({ setEmail }: ForgotPasswordFormProps) => {
     onSuccess: (_data, variables) => {
       setEmail(variables.email);
     },
-    onError: (error) => {
-      setError('email', { type: 'value', message: error.message });
+    onError: () => {
+      setError('email', { type: 'value', message: ERROR });
     },
   });
 
