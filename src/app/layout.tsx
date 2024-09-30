@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { TRPCProvider } from '@/utils/trpc/client';
-import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
   description: 'Swift Loans',
@@ -49,9 +48,9 @@ export default async function RootLayout({
       <body
         className={`antialiased bg-white min-h-svh text-brand ${inter.variable} font-sans font-normal`}
       >
-        <SessionProvider>
-          <TRPCProvider>{children}</TRPCProvider>
-        </SessionProvider>
+      <TRPCProvider>
+        {children}
+      </TRPCProvider>
       </body>
     </html>
   );
