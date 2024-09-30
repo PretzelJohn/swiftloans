@@ -32,8 +32,8 @@ export const LoginForm = () => {
   const onSubmit = useCallback(async (data: LoginSchema) => {
     const result = await signIn('credentials', {
       ...data,
-      redirect: searchParams.has('redirect'),
-      redirectTo: searchParams.get('redirect')!
+      redirect: true,
+      redirectTo: '/overview'
     });
 
     if (!result || result?.code) {
