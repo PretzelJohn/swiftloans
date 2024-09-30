@@ -9,6 +9,7 @@ import { loginMessages, type LoginSchema } from '@/shared/schema/login';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 import { Alert } from '@/client/features/alerts/alert';
+import { PasswordInput } from '@/client/components/fields/password-input';
 
 export const LoginForm = () => {
   const {
@@ -55,10 +56,8 @@ export const LoginForm = () => {
         })}
         error={errors.email?.message}
       />
-      <TextInput
-        type='password'
+      <PasswordInput
         label='Password'
-        placeholder='••••••••••'
         {...register('password', {
           required: 'Please enter your password.',
         })}

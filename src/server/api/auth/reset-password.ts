@@ -166,7 +166,11 @@ export const resetPassword = publicProcedure
     z.object({
       email: z.string().email(),
       token: z.string().regex(/[0-9a-f]{32}/),
-      password: z.string(),
+      password: z
+        .string()
+        .regex(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+        ),
     })
   )
   .mutation(async (opts) => {

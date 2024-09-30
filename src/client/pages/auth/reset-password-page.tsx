@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { trpc } from '@/utils/trpc/client';
 import { LinkExpiredScreen } from '@/client/features/auth/components/link-expired-screen';
-import { ResetPasswordScreen } from '@/client/features/auth/components/reset-password-screen';
+import { ResetPasswordForm } from '@/client/features/auth/components/reset-password-form';
 
 export const ResetPasswordPage = () => {
   const searchParams = useSearchParams();
@@ -27,5 +27,5 @@ export const ResetPasswordPage = () => {
     return <LinkExpiredScreen />;
   }
 
-  return <ResetPasswordScreen email={email} token={token} />;
+  return <ResetPasswordForm email={email} token={token} />;
 };
