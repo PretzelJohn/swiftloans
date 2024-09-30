@@ -14,7 +14,7 @@ const textTemplate = (firstName: string, path: string) =>
   'There was a request to change your password.\n' +
   'If you did not make this request, just ignore this email. Otherwise, please click the link below to change your password:\n' +
   `${path}` +
-  `The link will expire in 5 minutes.`;
+  `The link will expire in 15 minutes.`;
 
 const emailTemplate = (firstName: string, path: string) =>
   '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n' +
@@ -136,7 +136,7 @@ const emailTemplate = (firstName: string, path: string) =>
   '                                                                            <tbody>\n' +
   '                                                                                <tr>\n' +
   '                                                                                    <td align="left">\n' +
-  `                                                                                        <p style="font-size: 14px;">This link will expire in <strong>5 minutes</strong>.</p>\n` +
+  `                                                                                        <p style="font-size: 14px;">This link will expire in <strong>15 minutes</strong>.</p>\n` +
   '                                                                                    </td>\n' +
   '                                                                                </tr>\n' +
   '                                                                            </tbody>\n' +
@@ -193,11 +193,12 @@ export const forgotPassword = publicProcedure
           return;
         }
 
+        const expireDurationMs = 15 * 60 * 1000; //15 minutes
         const userToken = await prisma.userToken.create({
           data: {
             user_email: user.email,
             token: generateToken(),
-            expires_at: new Date(Date.now() + 5 * 60 * 1000),
+            expires_at: new Date(Date.now() + expireDurationMs),
           },
         });
 
