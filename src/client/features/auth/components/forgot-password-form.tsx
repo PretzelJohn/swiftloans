@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useCallback, useEffect, useState } from 'react';
 import { TextInput } from '@/client/components/fields/text-input';
 import { Button } from '@/client/components/button/button';
+import { trpc } from '@/utils/trpc/client';
 
 interface FormData {
   email: string;
@@ -28,14 +29,20 @@ export const ForgotPasswordForm = ({ setEmail }: ForgotPasswordFormProps) => {
 
   const [disabled, setDisabled] = useState<boolean>(true);
 
+  const forgotPasswordMutation = trpc.forgotPassword.useMutation({
+    onSuccess: (_data, variables) => {
+      setEmail(variables.email);
+    },
+    onError: (error) => {
+      setError('email', { type: 'value', message: error.message });
+    },
+  });
+
   const onSubmit = useCallback(
     (data: FormData) => {
-      console.log(data);
-      // TODO: send POST request to tRPC API
-      setError('email', { type: 'value', message: ERROR });
-      setEmail(email);
+      forgotPasswordMutation.mutate(data);
     },
-    [email, setEmail, setError]
+    [forgotPasswordMutation]
   );
 
   useEffect(() => {

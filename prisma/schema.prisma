@@ -25,6 +25,16 @@ model User {
   avatar_url    String?       @db.VarChar(255)
   job_title     String?       @db.VarChar(255)
   roles         Role[]
+  tokens        UserToken[]
+}
+
+model UserToken {
+  id            String        @id @db.Uuid @default(dbgenerated("gen_random_uuid()"))
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+  expires_at    DateTime
+  user_id       String        @db.Uuid
+  user          User          @relation(fields: [user_id], references: [id])
 }
 
 model Role {

@@ -48,9 +48,7 @@ export default async function RootLayout({
       <body
         className={`antialiased bg-white min-h-svh text-brand ${inter.variable} font-sans font-normal`}
       >
-      <TRPCProvider>
-        {children}
-      </TRPCProvider>
+        <TRPCProvider>{children}</TRPCProvider>
       </body>
     </html>
   );
