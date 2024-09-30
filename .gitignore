@@ -12,8 +12,9 @@
 .yarn/install-state.gz
 
 # testing
-/scripts
+/scripts/*
 /coverage
+!scripts/create-user.ts
 
 # next.js
 /.next/

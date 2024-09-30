@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Swift Loans
+
+The project is a web application designed to help loan brokers manage their workflow.
+Loan brokers can:
+* View metrics and recent activity summaries
+* Create/edit/view tasks to keep track of customer communication
+* Create/edit/view leads and contacts in one place, instead of entering them into a spreadsheet
+* Track loan applications across the entire pipeline
+* Upload and store reports for easy sharing
+
+## Background
+I built this to explore combining several web technologies:
+* Next.js App Router
+* React Server Components (RSC)
+* Prisma ORM
+* tRPC
+
+RSC reduces the use-case for tRPC, because you can just use Prisma directly in RSC now. However, tRPC is still very helpful for creating a clear server-side structure. Also, the endpoints created with tRPC can be re-used for different clients, like mobile apps or API services.
 
 ## Getting Started
 
-First, run the development server:
+Prerequisites:
+* Node 20.x.x
+* Docker
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Create a `.env` file in the root directory, with the following environment variables:
+```
+AUTH_SECRET="<your secure auth secret here>"
+DATABASE_URL="postgresql://<username>:<password>@host.docker.internal:5432/<database>?schema=public"
+EMAIL_USER="<your gmail username/email>"
+EMAIL_PASSWORD="<your gmail account app password>"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install packages with `npm i`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development postgres and web containers in docker:
+```bash
+docker compose up --build -d postgres web
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Create a user account with `npx ts-node .\scripts\create-user.ts <email> <password> <first_name> <last_name>`
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
