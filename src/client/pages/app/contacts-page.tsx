@@ -5,7 +5,7 @@ import { SearchInput } from '@/client/components/fields/search-input';
 import { View } from '@/client/features/view/components/view';
 import { Popover } from '@/client/features/popover/components/popover';
 import { Button } from '@/client/components/button/button';
-import PlusIcon from '@/assets/icons/plus.svg';
+import PlusIcon from '@/shared/assets/icons/plus.svg';
 import type { Column } from '@/client/components/table/table';
 import { ContactModal } from '@/client/features/contacts/components/contact-modal';
 

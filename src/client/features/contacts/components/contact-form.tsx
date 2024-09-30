@@ -5,7 +5,7 @@ import { useCallback } from 'react';
 import { TextInput } from '@/client/components/fields/text-input';
 import { Button } from '@/client/components/button/button';
 import { SwitchInput } from '@/client/components/fields/switch-input';
-import SaveIcon from '@/assets/icons/save.svg';
+import SaveIcon from '@/shared/assets/icons/save.svg';
 import { TextareaInput } from '@/client/components/fields/textarea-input';
 import { SelectInput } from '@/client/components/fields/select-input';
 import {

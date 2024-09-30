@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { ForgotPasswordForm } from '@/client/features/login/components/forgot-password-form';
+import { ForgotPasswordForm } from '@/client/features/auth/components/forgot-password-form';
 
 interface ForgotPasswordScreenProps {
   setEmail: Dispatch<SetStateAction<string>>;

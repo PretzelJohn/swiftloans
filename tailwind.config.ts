@@ -106,6 +106,14 @@ const config: Config = {
 
       // Font Sizes
       fontSize: {
+        title: [
+          '4rem',
+          {
+            fontWeight: 700,
+            letterSpacing: '-2%',
+            lineHeight: '1.2',
+          },
+        ],
         subtitle: [
           '2rem',
           {

@@ -6,7 +6,7 @@ import { View } from '@/client/features/view/components/view';
 import { Popover } from '@/client/features/popover/components/popover';
 import { TaskModal } from '@/client/features/tasks/components/task-modal';
 import { Button } from '@/client/components/button/button';
-import PlusIcon from '@/assets/icons/plus.svg';
+import PlusIcon from '@/shared/assets/icons/plus.svg';
 import type { Column } from '@/client/components/table/table';
 
 const defaultData: string[][] = [

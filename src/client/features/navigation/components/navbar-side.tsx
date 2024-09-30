@@ -1,19 +1,22 @@
-'use client';
-
-import Logo from '@/assets/images/logo-white.svg';
-import GridIcon from '@/assets/icons/grid.svg';
-import LayersIcon from '@/assets/icons/layers.svg';
-import UsersIcon from '@/assets/icons/users.svg';
-import PaperclipIcon from '@/assets/icons/paperclip.svg';
-import FileIcon from '@/assets/icons/file-text.svg';
+import Logo from '@/shared/assets/images/logo-white.svg';
+import GridIcon from '@/shared/assets/icons/grid.svg';
+import LayersIcon from '@/shared/assets/icons/layers.svg';
+import UsersIcon from '@/shared/assets/icons/users.svg';
+import PaperclipIcon from '@/shared/assets/icons/paperclip.svg';
+import FileIcon from '@/shared/assets/icons/file-text.svg';
 import Link from 'next/link';
 import { NavLink } from '@/client/components/links/nav-link';
 import { Divider } from '@/client/components/menu/divider';
 import { ProfileSection } from '@/client/features/profile/components/profile-section';
+import type { AppUser } from '@/shared/schema/user';
 
-export const NavbarSide = () => {
+interface NavbarSideProps {
+  user?: AppUser;
+}
+
+export const NavbarSide = ({ user }: NavbarSideProps) => {
   return (
-    <nav className='flex flex-col gap-4 justify-between h-svh py-8 px-6 bg-brand text-on-brand min-w-60'>
+    <nav className='flex flex-col gap-4 justify-between sm:h-svh py-8 px-6 bg-brand text-on-brand w-full sm:w-72'>
       <div className='flex flex-col gap-12'>
         <Link href='/'>
           <Logo className='h-6 shrink-0' name='Logo' />
@@ -45,7 +48,7 @@ export const NavbarSide = () => {
 
       <div className='flex flex-col gap-4'>
         <Divider variant='dark' />
-        <ProfileSection />
+        <ProfileSection user={user} />
       </div>
     </nav>
   );

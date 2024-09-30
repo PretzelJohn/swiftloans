@@ -1,4 +1,4 @@
-import CloseIcon from '@/assets/icons/close.svg';
+import CloseIcon from '@/shared/assets/icons/close.svg';
 import { usePopoverContext } from '@/client/features/popover/providers/popover-context-provider';
 
 export const CloseButton = () => {

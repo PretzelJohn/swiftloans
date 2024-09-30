@@ -5,7 +5,7 @@ import {
   useCallback,
 } from 'react';
 
-import SearchIcon from '@/assets/icons/search.svg';
+import SearchIcon from '@/shared/assets/icons/search.svg';
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onSearch: (query: string) => void;

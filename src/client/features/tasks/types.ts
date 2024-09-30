@@ -1,8 +1,8 @@
 import type { Icon } from '@/client/components/types';
-import TodoIcon from '@/assets/icons/todo.svg';
-import InProgressIcon from '@/assets/icons/in-progress.svg';
-import CompleteIcon from '@/assets/icons/complete.svg';
-import CancelledIcon from '@/assets/icons/cancelled.svg';
+import TodoIcon from '@/shared/assets/icons/todo.svg';
+import InProgressIcon from '@/shared/assets/icons/in-progress.svg';
+import CompleteIcon from '@/shared/assets/icons/complete.svg';
+import CancelledIcon from '@/shared/assets/icons/cancelled.svg';
 
 export type TaskStatus = 'notStarted' | 'inProgress' | 'done' | 'cancelled';
 

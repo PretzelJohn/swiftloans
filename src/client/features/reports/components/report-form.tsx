@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useCallback } from 'react';
 import { TextInput } from '@/client/components/fields/text-input';
 import { Button } from '@/client/components/button/button';
-import SaveIcon from '@/assets/icons/save.svg';
+import SaveIcon from '@/shared/assets/icons/save.svg';
 import { SelectInput } from '@/client/components/fields/select-input';
 import {
   type Report,

@@ -27,6 +27,13 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'media.licdn.com',
+      }
+    ],
+  },
   reactStrictMode: true,
 };
 

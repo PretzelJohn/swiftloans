@@ -1,0 +1,29 @@
+# Ignore system temp files
+.DS_Store
+._.DS_Store
+
+## Ignore editor generated files
+.vscode
+.vs
+
+## Node and project specific ignore files
+node_modules
+dist
+coverage
+.nyc_output
+.husky
+.vercel
+
+# Ignore docker files
+.docker-sync
+Dockerfile*
+docker*
+
+# Ignore git files
+.git
+.github
+
+# Monorepo Ignore
+terraform
+db-migrations
+minecraft

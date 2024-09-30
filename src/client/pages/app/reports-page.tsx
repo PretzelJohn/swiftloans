@@ -7,7 +7,7 @@ import type { Column } from '@/client/components/table/table';
 import { Popover } from '@/client/features/popover/components/popover';
 import { ReportModal } from '@/client/features/reports/components/report-modal';
 import { Button } from '@/client/components/button/button';
-import PlusIcon from '@/assets/icons/plus.svg';
+import PlusIcon from '@/shared/assets/icons/plus.svg';
 
 const defaultData: string[][] = [
   ['Leads Report - September 16, 2024', 'Leads', '09/16/2024'],

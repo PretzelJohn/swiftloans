@@ -1,3 +1,5 @@
+"use client";
+
 import { PopoverContextProvider } from '@/client/features/popover/providers/popover-context-provider';
 import { PopoverContainer } from '@/client/features/popover/components/popover-container';
 import type { PopoverProps } from 'react-tiny-popover';

@@ -9,21 +9,37 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "@tanstack/react-query": "^5.56.2",
+    "@trpc/client": "^11.0.0-rc.528",
+    "@trpc/react-query": "^11.0.0-rc.528",
+    "@trpc/server": "^11.0.0-rc.528",
+    "bcryptjs": "^2.4.3",
+    "client-only": "^0.0.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.2.12",
+    "next-auth": "^5.0.0-beta.21",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
     "react-tiny-popover": "^8.1.2",
-    "tailwind-merge": "^2.5.2"
+    "server-only": "^0.0.1",
+    "superjson": "^2.2.1",
+    "tailwind-merge": "^2.5.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@tsconfig/next": "2.0.3",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "dotenv-flow": "^4.1.0",
+    "dotenv-flow-cli": "^1.1.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.12",
     "eslint-config-prettier": "9.1.0",
@@ -35,7 +51,9 @@
     "eslint-plugin-simple-import-sort": "12.1.1",
     "postcss": "^8",
     "prettier": "3.3.3",
+    "prisma": "^5.20.0",
     "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5",
     "url-loader": "^4.1.1"
   }

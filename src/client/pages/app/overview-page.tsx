@@ -9,7 +9,7 @@ export const OverviewPage = () => {
   return (
     <MetricContextProvider>
       <TitleBar title='Overview'>
-        <p className='text-small text-brand-tertiary'>Last 7 days</p>
+
       </TitleBar>
 
       <div className='flex flex-col gap-8'>

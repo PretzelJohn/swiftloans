@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-import ActivityIcon from '@/assets/icons/activity.svg';
+import ActivityIcon from '@/shared/assets/icons/activity.svg';
 import { Tag } from '@/client/components/tag/tag';
 
 type Variant = 'default' | 'active';

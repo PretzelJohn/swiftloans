@@ -12,6 +12,7 @@
 .yarn/install-state.gz
 
 # testing
+/scripts
 /coverage
 
 # next.js
@@ -30,8 +31,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# env files
+.env*
 
 # vercel
 .vercel

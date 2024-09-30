@@ -35,5 +35,12 @@
     "downlevelIteration": true,
     "forceConsistentCasingInFileNames": true,
     "verbatimModuleSyntax": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "ES2017",
+      "verbatimModuleSyntax": false,
+    }
   }
 }

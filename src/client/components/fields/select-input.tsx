@@ -1,5 +1,5 @@
 import React, { type SelectHTMLAttributes } from 'react';
-import ChevronDownIcon from '@/assets/icons/chevron-down.svg';
+import ChevronDownIcon from '@/shared/assets/icons/chevron-down.svg';
 
 export type SelectOption = {
   name: string;

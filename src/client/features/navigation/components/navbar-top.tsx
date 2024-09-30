@@ -1,4 +1,4 @@
-import Logo from '@/assets/images/logo.svg';
+import Logo from '@/shared/assets/images/logo.svg';
 import Link from 'next/link';
 
 export const NavbarTop = () => {

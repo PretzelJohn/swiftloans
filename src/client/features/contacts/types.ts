@@ -1,7 +1,7 @@
 import type { Icon } from '@/client/components/types';
-import ErrorIcon from '@/assets/icons/error.svg';
-import InProgressIcon from '@/assets/icons/in-progress.svg';
-import CompleteIcon from '@/assets/icons/complete.svg';
+import ErrorIcon from '@/shared/assets/icons/error.svg';
+import InProgressIcon from '@/shared/assets/icons/in-progress.svg';
+import CompleteIcon from '@/shared/assets/icons/complete.svg';
 
 export type ContactCategory = 'error' | 'lead' | 'customer';
 

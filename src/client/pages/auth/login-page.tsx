@@ -1,4 +1,4 @@
-import { LoginForm } from '@/client/features/login/components/login-form';
+import { LoginForm } from '@/client/features/auth/components/login-form';
 import { Link } from '@/client/components/links/link';
 
 export const LoginPage = () => {

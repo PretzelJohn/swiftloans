@@ -1,8 +1,8 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import { CheckEmailScreen } from '@/client/features/login/components/check-email-screen';
-import { ForgotPasswordScreen } from '@/client/features/login/components/forgot-password-screen';
+import { CheckEmailScreen } from '@/client/features/auth/components/check-email-screen';
+import { ForgotPasswordScreen } from '@/client/features/auth/components/forgot-password-screen';
 
 export const ForgotPasswordPage = () => {
   const [email, setEmail] = useState<string>('');

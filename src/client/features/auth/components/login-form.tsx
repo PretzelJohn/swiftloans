@@ -5,41 +5,45 @@ import { useCallback, useEffect, useState } from 'react';
 import { TextInput } from '@/client/components/fields/text-input';
 import { Link } from '@/client/components/links/link';
 import { Button } from '@/client/components/button/button';
-
-interface FormData {
-  email: string;
-  password: string;
-}
-
-const UNAUTHORIZED =
-  'The email or password you entered is incorrect. Please try again, or reset your password.';
+import { loginErrors, type LoginSchema } from '@/shared/schema/login';
+import { signIn } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 
 export const LoginForm = () => {
   const {
     register,
     formState: { errors },
-    handleSubmit,
     setError,
+    handleSubmit,
     watch,
-  } = useForm<FormData>();
+  } = useForm<LoginSchema>();
+
+  const searchParams = useSearchParams();
 
   const email = watch('email');
   const password = watch('password');
 
   const [disabled, setDisabled] = useState<boolean>(true);
 
-  const onSubmit = useCallback(
-    (data: FormData) => {
-      console.log(data);
-      // TODO: send POST request to tRPC API
-      setError('password', { type: 'value', message: UNAUTHORIZED });
-    },
-    [setError]
-  );
-
   useEffect(() => {
     setDisabled(!email || !password);
   }, [email, password]);
+
+  const onSubmit = useCallback(async (data: LoginSchema) => {
+    const result = await signIn('credentials', {
+      ...data,
+      redirect: searchParams.has('redirect'),
+      redirectTo: searchParams.get('redirect')!
+    });
+
+    if (!result || result?.code) {
+      setError('password', {
+        type: 'value',
+        message: loginErrors[result?.code ?? 'none'],
+      });
+      return;
+    }
+  }, [searchParams, setError]);
 
   return (
     <form

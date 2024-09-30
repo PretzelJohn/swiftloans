@@ -1,14 +1,16 @@
-'use client';
-
 import { ProfileTrigger } from '@/client/features/profile/components/profile-trigger';
 import { Popover } from '@/client/features/popover/components/popover';
 import { ProfileMenu } from '@/client/features/profile/components/profile-menu';
+import type { AppUser } from '@/shared/schema/user';
 
-export const ProfileSection = () => {
-  // TODO: load profile section details from db
-  const avatarUrl = '/favicon-32x32.png';
-  const name = 'Alex Swift';
-  const role = 'Loan Broker';
+interface ProfileSectionProps {
+  user?: AppUser;
+}
+
+export const ProfileSection = ({ user }: ProfileSectionProps) => {
+  const avatarUrl = user?.avatar_url ?? undefined;
+  const name = `${user?.first_name} ${user?.last_name}`;
+  const jobTitle = user?.job_title ?? undefined;
 
   return (
     <Popover
@@ -16,7 +18,7 @@ export const ProfileSection = () => {
       positions={['top', 'right', 'bottom', 'left']}
       content={<ProfileMenu />}
     >
-      <ProfileTrigger avatarUrl={avatarUrl} name={name} role={role} />
+      <ProfileTrigger avatarUrl={avatarUrl} name={name} jobTitle={jobTitle} />
     </Popover>
   );
 };
