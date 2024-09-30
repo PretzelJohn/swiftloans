@@ -41,6 +41,11 @@ const config: Config = {
           secondary: '#c00f0c',
           tertiary: '#ec221f',
         },
+        positive: {
+          DEFAULT: '#02542d',
+          secondary: '#009951',
+          tertiary: '#14ae5c',
+        },
       },
 
       outlineColor: {
@@ -51,6 +56,11 @@ const config: Config = {
           DEFAULT: '#900b09',
           secondary: '#c00f0c',
           tertiary: '#ec221f',
+        },
+        positive: {
+          DEFAULT: '#02542d',
+          secondary: '#009951',
+          tertiary: '#14ae5c',
         },
       },
 

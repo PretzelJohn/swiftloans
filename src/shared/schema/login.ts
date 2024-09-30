@@ -1,8 +1,9 @@
 import { z } from 'zod';
 
-export const loginErrors: Record<string, string> = {
+export const loginMessages: Record<string, string> = {
   credentials:
     'An account with that email/password combination does not exist.',
+  reset_success: 'Password changed successfully.',
   none: 'Something went wrong.',
 };
 

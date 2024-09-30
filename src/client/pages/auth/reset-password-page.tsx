@@ -19,7 +19,11 @@ export const ResetPasswordPage = () => {
     token,
   });
 
-  if (!userToken?.data?.token?.id) {
+  if (userToken.status === 'pending') {
+    return <></>;
+  }
+
+  if (!userToken.data?.token?.id) {
     return <LinkExpiredScreen />;
   }
 

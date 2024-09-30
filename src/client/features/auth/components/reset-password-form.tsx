@@ -42,7 +42,7 @@ export const ResetPasswordForm = ({ email, token }: ResetPasswordFormProps) => {
 
   const resetPasswordMutation = trpc.resetPassword.useMutation({
     onSuccess: () => {
-      return router.push('/login');
+      return router.push('/login?code=reset_success');
     },
     onError: () => {
       setError('password', { type: 'value', message: ERROR });
